@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -26,25 +27,44 @@ int main(){
 	// }
 
 	//ifile.seekg(0,ifile.beg);
+	length = 200;
 	char *bufp = new char [length];
-	ifile.read(bufp,length);
-	int bufstart = 0;
-	int bufend = 0;
-	//while(bufend<length){
-		//unsigned short tmp = bufp[bufstart] & 0xff | ((bufp[bufstart+1] & 0xff) << 8);
-		unsigned char a = (bufp[0]);
-	// unsigned char a=0xd4;
-	printf("%x\n",a);
-		cout<<hex<<a<<endl;
-		unsigned short tmp = ((bufp[bufstart] & 0xff )<< 8)| ((bufp[bufstart+1] & 0xff)  );
-	//}
-	cout<<hex<<tmp<<endl;
+	// ifile.read(bufp,length);
+	// int bufstart = 0;
+	// int bufend = 0;
+	// //while(bufend<length){
+	// 	//unsigned short tmp = bufp[bufstart] & 0xff | ((bufp[bufstart+1] & 0xff) << 8);
+	// 	unsigned char a = (bufp[0]);
+	// // unsigned char a=0xd4;
+	// printf("%x\n",a);
+	// 	cout<<setw(2)<<hex<<(int)(a)<<endl;
+	// 	unsigned short tmp = ((bufp[bufstart] & 0xff )<< 8)| ((bufp[bufstart+1] & 0xff)  );
+	// //}
+
+	// 	tmp = 0xc3d4;
+		unsigned short *pu16 = (unsigned short*)bufp;
+	// 	cout<<"pu16: "<<hex<<setw(4)<<setfill('0')<<pu16[0]<<endl;
+	// cout<<"tmp: "<<hex<<tmp<<endl;
+	// cout<<(pu16[0]==tmp)<<endl;
+
+	while(*pu16 != 0xeeff){
+		ifile.read(bufp,2);
+		pu16 = (unsigned short*)bufp;
+	}
+
+	ifile.seekg(-2,ifile.cur);
+	ifile.read(bufp,1240);
+
+
+
+
+
 
 	//cout<<"asdad"<<memcmp(bufp,&tmp,2)<<endl;
 
-	ofile.write(bufp,length);
+	ofile.write(bufp,1240);
 	//ofile<<bufp;
-	cout<<ofile.good()<<ifile.good();
+	cout<<ofile.good()<<ifile.good()<<endl;
 	cout<<"ffee pos: "<<ifile.tellg()<<endl;
 
 	// ifile.seekg(0,ifile.beg);
