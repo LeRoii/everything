@@ -1,16 +1,32 @@
+#include <fstream>
+#include <iostream>
 #include "LidarTools.h"
 
-#include <stdio.h>
+using namespace std;
 
-int main(int argc , char** argv)
-{
-	unsigned char RGB[3];
-
-	int i = 0;
-	for(i = 0 ; i < 255 ; i++)
-	{
-		HS_getColorMapFromIntensity(i * 256 , RGB);
-		printf("%03d R : %03d G : %03d , B : %03d\n", i, RGB[0] , RGB[1] , RGB[2]);
+int main(){
+	ifstream OpenFile("../lidardata.pcap");
+	ofstream of("out.dat");
+	if(!OpenFile){
+		cout<<"open failed"<<endl;
 	}
+	unsigned char buf[10];
+	unsigned char ch;
+	int i=0;
+
+	OpenFile.seekg(0,OpenFile.end);
+	int length = OpenFile.tellg();
+	OpenFile.seekg(0,OpenFile.beg);
+
+	cout<<"file length: "<<length<<" bytes"<<endl;
+
+	while(i<10){
+		buf[i] = OpenFile.get();
+		of<<buf[i++];
+		//cout<<hex<<buf[i++]<<endl;;
+	}
+
+	int HS_Pandar40P_Parse(HS_Pandar40P_Packet *packet , const unsigned char* recvbuf , const int len);
+
 	return 0;
 }
