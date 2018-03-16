@@ -1,0 +1,2 @@
+beginner_tuto
+-DCATKIN_DEVEL_PREFIX=/home/wangzp/code/Github/everything/ROS_Tuto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/wangzp/code/Github/everything/ROS_Tuto/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/wangzp/code/Github/everything/ROS_Tuto/catkin_ws/install
+
+Name: beginner_tuto
+Description: Description of beginner_tuto
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/wangzp/code/Github/everything/ROS_Tuto/catkin_ws/install/lib 
+Requires: 
