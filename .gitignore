@@ -1,2 +1,3 @@
 ROS_Tuto/catkin_ws/build/.*
 testOpencv/build/
+testEigen/build/.*
