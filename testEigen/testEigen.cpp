@@ -16,6 +16,7 @@ int main(){
 	//Eigen::Vector3d v_rotated = q*v*q.inverse();	error
 	Eigen::Quaterniond q_multi_p = q*p;
 	Eigen::Quaterniond p_multi_q = p*q;
+	Eigen::Quaterniond p_minus_q = q.inverse()*p;
 	Eigen::Quaterniond p_rotatedby_q = q*p*q.inverse();
 	
 	cout<<"Quaterniond q:"<<endl<<q.coeffs()<<endl;
@@ -24,6 +25,7 @@ int main(){
 	cout<<"q_multi_p:"<<endl<<q_multi_p.coeffs()<<endl;
 	cout<<"p_multi_q:"<<endl<<p_multi_q.coeffs()<<endl;
 	cout<<"p_rotatedby_q:"<<endl<<p_rotatedby_q.coeffs()<<endl;
+	cout<<"p_minus_q:"<<endl<<p_minus_q.coeffs()<<endl;;
 
 	return 0;
 }
