@@ -12,6 +12,7 @@ int main(){
 	Eigen::Quaterniond p(0,1,0,0);
 
 	Eigen::Vector3d v_rotated = q*v;	// vector v rotated by q
+	//Eigen::Vector3d v_rotated = v*q;	//error 
 	//Eigen::Vector3d v_rotated = q*v*q.inverse();	error
 	Eigen::Quaterniond p_rotated = q*p;
 	//Eigen::Quaterniond p_rotated = p*q;
