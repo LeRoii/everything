@@ -40,24 +40,3 @@ int main(){
 
 	return 0;
 }
-
-Quaterniond q:
-       0
-       0
-0.382683
- 0.92388
-Quaterniond p:
-       -0
-       -0
--0.382683
-  0.92388
-v rotated by q:0.707107 0.707107        0
-Quater_v rotated by q:
-0.707107
-0.707107
-       0
-       0
-v rotated by q_multi_p:1 0 0
-v rotated by p_multi_q:1 0 0
-v rotated by p_minus_q:-2.22045e-16           -1            0
-v rotated by q_minus_p:-2.22045e-16            1            0
